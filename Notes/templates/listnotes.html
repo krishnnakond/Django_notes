@@ -1,0 +1,33 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Note List</h1>
+   <a href="/addnotes/">Add notes</a> <a href="/logout/">logout</a>
+  {% if my_note %}
+    <ul>
+
+      {% for note in my_note %}
+      <li>
+        <a href="/notes/{{ note.id }}/">{{ note.id }}</a> <a href="/notes/{{note.id}}/update/">Update</a> |      <a href="/notes/{{note.id}}/remove/">delete</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Sorry you have no notes</p>
+    {% endif %} 
+</div>
+
+</body>
+</html>
